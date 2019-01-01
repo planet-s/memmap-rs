@@ -13,8 +13,8 @@ keywords = ["mmap", "memory-map", "io", "file"]
 travis-ci = { repository = "danburkert/memmap-rs" }
 appveyor = { repository = "danburkert/mmap" }
 
-[target.'cfg(unix)'.dependencies]
-libc = "0.2"
+[target.'cfg(any(unix, target_os = "redox"))'.dependencies]
+libc = { git = "https://gitlab.redox-os.org/redox-os/liblibc.git", branch = "redox" }
 
 [target.'cfg(windows)'.dependencies]
 winapi = { version = "0.3", features = ["basetsd", "handleapi", "memoryapi", "minwindef", "std", "sysinfoapi"] }

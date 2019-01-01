@@ -2,6 +2,11 @@
 
 #![doc(html_root_url = "https://docs.rs/memmap/0.7.0")]
 
+#[cfg(target_os = "redox")]
+mod redox;
+#[cfg(target_os = "redox")]
+use redox::MmapInner;
+
 #[cfg(windows)]
 extern crate winapi;
 #[cfg(windows)]
