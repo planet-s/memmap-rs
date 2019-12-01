@@ -433,7 +433,7 @@ impl AsRef<[u8]> for Mmap {
 }
 
 impl fmt::Debug for Mmap {
-    fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
+    fn fmt(&self, fmt: &mut fmt::Formatter<'_>) -> fmt::Result {
         fmt.debug_struct("Mmap")
             .field("ptr", &self.as_ptr())
             .field("len", &self.len())
@@ -676,7 +676,7 @@ impl AsMut<[u8]> for MmapMut {
 }
 
 impl fmt::Debug for MmapMut {
-    fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
+    fn fmt(&self, fmt: &mut fmt::Formatter<'_>) -> fmt::Result {
         fmt.debug_struct("MmapMut")
             .field("ptr", &self.as_ptr())
             .field("len", &self.len())
